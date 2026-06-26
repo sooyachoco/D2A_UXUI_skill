@@ -87,6 +87,28 @@ done:
 | S2 Minor | 우회 가능 | 백로그 |
 | S1 Cosmetic | 소소한 개선 | 여유 시 처리 |
 
+## 클론 후 사용 (다른 작업자용 빠른 시작)
+
+각자 로컬에서 클론한 뒤, 자신의 `d2a-boilerplate-claude` 에 오버레이를 한 번에 설치한다.
+
+```bash
+# 1) 이 번들 클론
+git clone https://github.com/sooyachoco/D2A_UXUI_skill.git
+cd D2A_UXUI_skill
+
+# 2) 내 보일러플레이트에 설치 (template/ 로 복사, 기존 파일은 .bak 백업)
+bash install.sh <d2a-boilerplate-claude 경로>          # macOS/Linux/Git Bash
+#  또는
+pwsh ./install.ps1 -Target <d2a-boilerplate-claude 경로>  # Windows PowerShell
+```
+
+설치기는 신규 파일을 복사하고 충돌 파일(create-spec·pre-launch-check·accessibility·task-validator)은
+`.bak-<timestamp>` 로 백업한 뒤 덮어쓴다. 끝나면 콘솔이 남은 2단계를 안내한다:
+1. `CLAUDE.md` 스킬 표에 4종(`ux-audit`/`ux-research-sync`/`ui-design-workflow`/`ai-usability-test`) 등록
+2. `cd d2a-mcp-server && npm install && npm run build` 로 `ut:` 게이트 활성화
+
+> 파일별 병합 판정(상위호환/동일)·경로 매핑 상세는 [`INTEGRATION.md`](INTEGRATION.md) 참조.
+
 ## 통합
 
 본체(`d2a-boilerplate-claude`)에 병합하는 검증된 절차는 [`INTEGRATION.md`](INTEGRATION.md) 참조 — 신규 6건 / 충돌 4건의 diff 판정(모두 상위호환), CLAUDE.md 등록 스니펫, `dist/` 재빌드 절차를 담았다.
