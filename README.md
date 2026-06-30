@@ -27,6 +27,7 @@ D2A 보일러플레이트의 **AI 네이티브 UX 검증** 기능 묶음 — 본
 |---|---|
 | `ux-audit.md` | **PRD·플로우·와이어프레임 사전 진단(shift-left).** 7개 UX 렌즈(플로우·인증·결제·에러복구·멘탈모델·빈상태·피드백) 휴리스틱으로 공백을 하나씩 질문해 잡는다. 코드 작성 전 단계, 자문형(점수·게이트 없음) |
 | `ai-usability-test.md` | Playwright + 3페르소나(초보/파워/접근성) + Nielsen 휴리스틱 자동 사용성 테스트. 산출물 5종 생성, MCP `ut:` done 기준 |
+| `design-handoff.md` | **(종착·신규)** UT 통과(S4=0) 후 개발 핸드오프 스펙 생성. `design:design-handoff` 플러그인을 엔진으로 호출(없으면 폴백), 앞 단계 산출물을 묶어 `HANDOFF.md`로 출력. 새 결정 금지(설계는 ui-design-workflow 소관) |
 | `ux-research-sync.md` | 실제 리서치 데이터를 MCP로 연결 → 신뢰도 3단계(🟢검증/🟢인접/🔵가설)로 ux-research 8종 주입. 단일 source 공급 |
 | `write-scenario.md` | **(상류·신규)** PRD→흐름 strawman 사용자 확정(AI 추측 금지)→페르소나별 과업 시나리오→잠정 화면 후보. 커버리지까지만 책임, 충실도는 ui-design-workflow에 위임. 산출 `scenario.md` |
 | `reference-proposal.md` | **(상류·신규)** 화면설계 전 레퍼런스를 AI가 제안→사용자 선택. 기준 톤 1개 + 화면별 인터랙션 레퍼런스(키스톤). 산출 `reference-board.md` |
@@ -107,7 +108,7 @@ pwsh ./install.ps1 -Target <d2a-boilerplate-claude 경로>  # Windows PowerShell
 설치기는 신규 파일을 복사하고 충돌 파일(create-spec·pre-launch-check·accessibility·task-validator)은
 `.bak-<timestamp>` 로 백업한 뒤 덮어쓴다. **이어서 `ut:` 게이트 활성화를 위해 MCP 를 자동 재빌드**한다
 (`task-validator.ts` 를 덮어썼으므로 필수 — npm 부재 시에만 수동 안내). 끝나면 콘솔이 남은 1단계를 안내한다:
-1. `CLAUDE.md` 스킬 표에 6종(`write-scenario`/`reference-proposal`/`ux-audit`/`ux-research-sync`/`ui-design-workflow`/`ai-usability-test`) 등록
+1. `CLAUDE.md` 스킬 표에 7종(`write-scenario`/`reference-proposal`/`ux-audit`/`ux-research-sync`/`ui-design-workflow`/`ai-usability-test`/`design-handoff`) 등록
 
 > MCP 빌드는 보일러플레이트 초기 셋업의 빌드와 동일한 작업이다. 설치기가 덮어쓴 직후 자동 재실행해
 > 구버전 `dist/` 가 남지 않도록 보장한다(`ut:` 게이트가 조용히 죽는 것을 방지).

@@ -85,13 +85,14 @@ fi
 cat <<'EOF'
 
 남은 수동 1단계:
-[*] CLAUDE.md 스킬 표에 6종 등록 (미등록 시 자동 호출 안 됨)
+[*] CLAUDE.md 스킬 표에 7종 등록 (미등록 시 자동 호출 안 됨)
     | `/write-scenario`    | PRD→흐름 사용자 확정→페르소나별 과업 시나리오→잠정 화면 후보 (scenario.md) |
-    | `/reference-proposal`| 화면설계 전 레퍼런스 제안→선택 (톤 북극성 + 화면별 키스톤, reference-board.md) |
+    | `/reference-proposal`| 화면설계 전 레퍼런스 제안→선택 (기준 톤 + 화면별 키스톤, reference-board.md) |
     | `/ux-audit`          | 구현 전 UX 진단 (7가지 휴리스틱 렌즈 — advisory) |
     | `/ux-research-sync`  | 외부 리서치 데이터를 refs/ux-research SSOT에 적재 |
     | `/ui-design-workflow`| PRD→게이트0→3안 발산→락→상태설계→핸드오프 |
     | `/ai-usability-test` | Playwright 3 페르소나 자동 사용성 테스트 |
+    | `/design-handoff`    | UT 통과 후 개발 핸드오프 스펙 생성 (design:design-handoff 호출, HANDOFF.md) |
 
 자세한 병합 판정·매핑은 INTEGRATION.md 참조.
 EOF
